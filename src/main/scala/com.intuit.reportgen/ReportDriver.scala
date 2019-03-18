@@ -81,10 +81,14 @@ class ReportDriver {
       *  Join is one of the most expensive operations we will be doing here. The below steps are to combine and reduce to
       *  only the customers that we need before we join
       *
-      *  Assumption:
+      *  Assumption 1:
       *     Generally the customers that are signed up will be exponentially higher than the regular customers who transact.
       *     So aggregating and getting a list of unique customer ids we are interested in will result
       *     in a smaller set of data to join
+      *
+      *  Assumption 2:
+      *     If the number of customers are small we could simply cache/persist in memory and do a lookup without having to
+      *     do the operations to aggregate sales RDD and finding unique customers
       */
 
     /**
