@@ -82,8 +82,8 @@ class ReportDriver {
       *  only the customers that we need before we join
       *
       *  Assumption 1:
-      *     Generally the customers that are signed up will be exponentially higher than the regular customers who transact.
-      *     So aggregating and getting a list of unique customer ids we are interested in will result
+      *     Assuming the customers that are signed up will be exponentially higher than the regular customers who transact.
+      *     In this case, aggregating and getting a list of unique customer ids we are interested in will result
       *     in a smaller set of data to join
       *
       *  Assumption 2:
