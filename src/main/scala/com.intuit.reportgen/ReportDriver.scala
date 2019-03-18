@@ -87,7 +87,7 @@ class ReportDriver {
       *     in a smaller set of data to join
       *
       *  Assumption 2:
-      *     If the number of customers are small we could simply cache/persist in memory and do a lookup without having to
+      *     If the number of customers are small we could simply cache/persist customer RDD in memory and do a lookup without having to
       *     do the operations to aggregate sales RDD and finding unique customers
       */
 
