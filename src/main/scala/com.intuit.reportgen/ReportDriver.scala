@@ -83,12 +83,18 @@ class ReportDriver {
       *
       *  Assumption 1:
       *     Assuming the customers that are signed up will be exponentially higher than the regular customers who transact.
-      *     In this case, aggregating and getting a list of unique customer ids we are interested in will result
-      *     in a smaller set of data to join
+      *     In this case, aggregating and getting a list of unique customer ids from Sales RDD based on the
+      *     highest level of granularity will result in a smaller set of data to join
       *
       *  Assumption 2:
       *     If the number of customers are small we could simply cache/persist customer RDD in memory and do a lookup without having to
       *     do the operations to aggregate sales RDD and finding unique customers
+      *
+      *  Assumption 3:
+      * *     If we have large volumes of customer and sales data then aggregating
+      *       the Sales RDD like in approach one and joining with Customer RDD will be the way to go. We will refrain from
+      *       caching customer data since we assume it will be too large for in memory
+      *
       */
 
     /**
